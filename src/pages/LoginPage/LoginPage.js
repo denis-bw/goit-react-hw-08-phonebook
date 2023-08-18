@@ -32,14 +32,7 @@ const LoginPage = () => {
   };
     
   if(err) {notify()}
-  //bwden1234
-  //densi105@gmail.com
-  //xxxas12s
-
-  // ------
-  //asdfxxxx
-  //d11aensi1205@gmail.com
-  //d1aensi1205
+  
   return (
     <div className={css.ContainerForm}>
        <form onSubmit={onSubmit} className={css.FormLogin}>
@@ -49,7 +42,7 @@ const LoginPage = () => {
         </label>
         <label>
           <p className={css.textInput}>Password</p>
-          <input className={css.LoginInput} type="password" name="password" required autoComplete="on" title="" />
+          <input className={css.LoginInput} type="password" name="password" required autoComplete="on"  minLength={6} maxLength={10} title="name can contain 6 to 10 characters"/>
         </label>
         <button className={css.btnLogin} type="submit">Submit</button>
       </form>

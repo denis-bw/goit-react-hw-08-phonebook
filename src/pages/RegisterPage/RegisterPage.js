@@ -36,15 +36,34 @@ const RegisterPage = () => {
         <form className={css.FormRegister} onSubmit={onSubmit}>
         <label>
           <p className={css.textRegisterForm}>Username</p>
-          <input className={css.inputRegisterForm} type="text" name="username" required title="" />
+          <input className={css.inputRegisterForm}
+            type="text"
+            name="username"
+            required
+            minLength={6}
+            maxLength={10}
+            title="name can contain 6 to 10 characters"
+           />
         </label>
         <label>
          <p className={css.textRegisterForm}>Email</p>
-          <input className={css.inputRegisterForm} type="email" name="email" required />
+          <input className={css.inputRegisterForm}
+            type="email"
+            name="email"
+            required
+          />
         </label>
         <label>
           <p className={css.textRegisterForm}>Password</p>
-          <input className={css.inputRegisterForm} type="password" name="password" required autoComplete="on" title="a" />
+          <input
+            className={css.inputRegisterForm}
+            type="password"
+            name="password"
+            required
+            autoComplete="on"
+            minLength={6}
+            title="password can contain at least 6 characters"
+          />
         </label>
         <button className={css.btnRegister} type="submit">Submit</button>
       </form>
