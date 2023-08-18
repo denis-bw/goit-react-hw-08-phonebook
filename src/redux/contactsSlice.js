@@ -19,7 +19,6 @@ import { fetchContactsDataThunk, fetchContactsAddThunk, fetchContactsDeleteThunk
          })
          .addCase(fetchContactsDataThunk.fulfilled, (state, action) => { 
              state.contacts.isLoading = false;
-             console.log(action,'actions')
              state.contacts.items = action.payload;         
          })
         .addCase(fetchContactsDataThunk.rejected, (state, action) => { 
@@ -47,7 +46,6 @@ import { fetchContactsDataThunk, fetchContactsAddThunk, fetchContactsDeleteThunk
         .addCase(fetchContactsAddThunk.fulfilled, (state, action) => { 
             state.contacts.isLoading = false;
             state.contacts.error = null;
-            console.log(action)
             state.contacts.items = [...state.contacts.items, action.payload ];
          })
         .addCase(fetchContactsAddThunk.rejected, (state, action) => { 

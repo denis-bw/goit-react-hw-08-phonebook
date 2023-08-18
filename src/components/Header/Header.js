@@ -15,8 +15,8 @@ const Header = () => {
     return <header className={css.headerContainer}>
         
             <nav className={css.navigation}>
-                <div><Navigation path='/' text='home'/></div>
-                {isLoggedIn ? <div><Navigation path='/contacts' text='contacts'/></div>: <AuthNav/>}
+                <div className={css.ContainerLink}><Navigation path='/' text='home'/></div>
+                {isLoggedIn ? <div className={css.ContainerLink}><Navigation path='/contacts' text='contacts'/></div>: <AuthNav/>}
             </nav>
         
             {isLoggedIn && <UserMenu />}

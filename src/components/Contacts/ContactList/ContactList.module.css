@@ -1,8 +1,10 @@
 .item__contact {
     display: flex;
     gap: 20px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+
 }
 
 .text__contact {
@@ -18,7 +20,7 @@
 
 .btn__delete__contact {
     outline: none;
-    background: #da7e5f;
+    background: rgb(147, 132, 110);;
     width: 80px;
     border: 0;
     border-radius: 4px;
@@ -38,5 +40,27 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    margin-left: 20px;
+    margin: 16px;
+    padding: 16px 6px;
+    border: 2px solid #212121;
+    border-radius: 4px;
+}
+
+.TextContactList{
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+    color: #212121;
+    margin-top: 12px;
+}
+
+@media (min-width: 520px) {
+    .container__contact {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
 }

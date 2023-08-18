@@ -1,29 +1,36 @@
 import { useEffect } from 'react';
 import css from './ContactList.module.css'
+import { toast } from 'react-toastify';
 import { fetchContactsDataThunk, fetchContactsDeleteThunk } from 'redux/operations';
 import { useSelector, useDispatch } from 'react-redux';
-
-// import { Loader } from "components/Loader/Loader";
+import { Loader } from 'components/Loader/Loader';
 
 export const ContactList = () => {
 
   const dispatch = useDispatch()
   const contacts = useSelector(state => state.contactDetails.contacts)
-  // console.log(contacts, 'contacts)')
   const filterContacts = useSelector(state => state.contactDetails.filter)
-  const loader = useSelector(state => state.contactDetails.contacts.isLoading)
   const error = useSelector(state => state.contactDetails.contacts.error)
 
   useEffect(() => {
     dispatch(fetchContactsDataThunk());
   }, [dispatch]);
   
-  console.log(contacts)
+  const loding = useSelector(state => state.contactDetails.contacts.isLoading)
+
+
+
   const visibleContact = contacts.items.filter(constact => constact.name.toUpperCase().includes(filterContacts))
-  if(error){alert('Error operation failed')}
-  // (loader && <Loader />) ||
+  if (error) {
+    toast.error("Error operation failed", {
+    position: toast.POSITION.TOP_CENTER
+  })}
+  
        
-     return   <ul className={css.container__contact}>
+  return (loding && <Loader />) ||
+    <>
+            <p className={css.TextContactList}>Contact List</p>
+                  <ul className={css.container__contact}>
                        { visibleContact?.map(el => {
                           return <li className={css.item__contact} key={el.id}>
                                     <p className={css.text__contact}>{el.name}: {el.number}</p>
@@ -32,5 +39,6 @@ export const ContactList = () => {
                                     </button>
                                   </li>
                               })}
-                      </ul>
+                      </ul>  
+     </>
 }

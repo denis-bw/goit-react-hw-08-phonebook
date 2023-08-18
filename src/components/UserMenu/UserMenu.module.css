@@ -1,0 +1,50 @@
+.userMenuContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.userName{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.36;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #151515;
+}
+
+.btnLogOut{
+    outline: none;
+    background: #2c2a2a;
+    width: 90px;
+    border: 0;
+    border-radius: 4px;
+    padding: 6px;
+    color: rgb(240, 236, 236);;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.btnLogOut:hover,.btnLogOut:focus {
+    background-color: rgb(209, 94, 94);
+}
+@media (max-width: 460px) {
+    .userMenuContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .userName {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.36;
+        text-align: center;
+        letter-spacing: 0.06em;
+    }
+}
+

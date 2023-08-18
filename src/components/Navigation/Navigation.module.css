@@ -1,0 +1,15 @@
+.Link{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.36;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: rgb(240, 236, 236);
+    text-transform: uppercase;
+}
+
+.Link:hover, .Link:focus {
+    text-decoration: underline;
+    color: #2c2b2b;
+}

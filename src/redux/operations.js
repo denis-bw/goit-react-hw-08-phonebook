@@ -22,7 +22,7 @@ export const fetchAuthorizationUser = createAsyncThunk('userDetails/fetchAuthori
             token.setToken(data.token)
             return data;
 
-        } catch (err) {     
+        } catch (err) {    
             return thunkApi.rejectWithValue(err.massage)
         }
 
@@ -36,7 +36,7 @@ export const fetchLogUser = createAsyncThunk('userDetails/fetchLogUser',
             token.setToken(data.token)
             return data;
 
-        } catch (err) {     
+        } catch (err) { 
             return thunkApi.rejectWithValue(err.massage)
         }
 });
@@ -48,11 +48,27 @@ export const fetchLogout = createAsyncThunk('userDetails/fetchLogIn',
             await axios.post('/users/logout')
             token.unsetToken()
 
-        } catch (err) {     
+        } catch (err) {  
             return thunkApi.rejectWithValue(err.massage)
         }
     });
 
+export const refreshUser = createAsyncThunk('userDetails/refreshUser',
+    async (_, thunkApi) => {
+        
+        const { userDetails } = thunkApi.getState()
+        if (!userDetails.token) throw new Error('cannot read properties of undefined reading token');
+        token.setToken(userDetails.token);
+        
+        try {
+            const res = await axios.get('/users/current')
+            return res.data;
+
+        } catch (error) {
+            console.log(error,'err')
+            return thunkApi.rejectWithValue(error.massage)
+        }
+    })
 
     // ------ contact Thunk--------------------------------------
 
@@ -60,7 +76,6 @@ export const fetchContactsDataThunk = createAsyncThunk('contactsDetails/fetchCon
     async (_, thunkApi) => {
         try {
             const {data}  = await axios.get('/contacts')
-            console.log(data)
             return data;
         }
         catch (error) {
@@ -74,9 +89,6 @@ export const fetchContactsAddThunk = createAsyncThunk('contactsDetails/fetchCont
         try {
            
             const { data }  = await axios.post('/contacts', contact)
-            console.log(data)
-            
-            // token.setToken(data.token)
             return data;
         }
         catch (error) {
@@ -88,7 +100,6 @@ export const fetchContactsDeleteThunk = createAsyncThunk('contactsDetails/fetchC
     async (contactId, thunkApi) => {
         try {
             const { data }  = await axios.delete(`/contacts/${contactId}`)
-            console.log(data)
             return data;
         }
         catch (error) {

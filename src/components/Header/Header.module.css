@@ -1,15 +1,21 @@
 .headerContainer {
     display: flex;
     justify-content: space-between;
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: 50px;
+    padding: 40px 50px;
+    background-color: rgb(147, 132, 110);
 }
 
 .navigation {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 10px;
+    width: 100%;
+}
+
+
+@media (max-width: 678px) {
+    .headerContainer {
+        padding: 30px 16px;
+    }
 }
 

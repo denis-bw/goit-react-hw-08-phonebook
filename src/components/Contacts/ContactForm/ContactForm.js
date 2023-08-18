@@ -4,7 +4,7 @@ import css from './ContactForm.module.css'
 
 export function ContactForm() {
   const dispatch = useDispatch()
-  const contacts = useSelector(state => state.contactDetails  .contacts.items)
+  const contacts = useSelector(state => state.contactDetails.contacts.items)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,20 +33,19 @@ export function ContactForm() {
                       className={css.input__form}
                       type="text"
                       name="name"
-                      pattern="^[a-zA-Z]{1,8}"
-                      title="The name can contain only letters, from 1 to 8 Latin letters"
-                      required
-                      />
+                      pattern="^[a-zA-Z]{1,10}"
+                      title="The name can contain only letters, from 1 to 10 Latin letters"
+                      required/>
                 </label>
-          
                 <label>
                   <p className={css.form__text}>Number</p>
                   <input
                       className={css.input__form}
                       type="tel"
                       name="phone"
-                      // pattern="[0-9]{5,10}"
-                      title="Phone number must be digit and have 5-10 digit"
+                      pattern="[0-9]{9}"
+                      maxLength="15"
+                      title="please enter 9 digit number only (xxxxxxxxx)"
                       required
                   />
                 </label>

@@ -1,19 +1,20 @@
 import { ContactForm } from "components/Contacts/ContactForm/ContactForm";
 import { ContactList } from "components/Contacts/ContactList/ContactList";
 import { FilterContact } from "components/Contacts/FilterContact/FilterContact";
+import css from './ContactsPage.module.css'
 
 const ContactsPage = () => {
 
-  return (
-    <div style={{ width: 300 }}>
-      <FilterContact/>
-      
-      <ContactList />
-      
+  return <div className={css.ContactContainer}>
 
-      <ContactForm />
-    </div>
-  );
+            <FilterContact/>
+            
+            <ContactList />
+            
+            <ContactForm />
+        </div>
+      
+  
 };
 
 export default ContactsPage

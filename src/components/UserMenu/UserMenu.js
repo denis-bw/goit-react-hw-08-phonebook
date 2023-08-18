@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { fetchLogout } from "redux/operations"
 import { useDispatch } from "react-redux"
-
+import css from './UserMenu.module.css'
 
 const UserMenu = () => {
 
@@ -12,9 +12,9 @@ const UserMenu = () => {
         dispatch(fetchLogout()) 
     }
 
-    return  <div >
-                <p>{name}</p>
-                <button onClick={logoutUser}>Logout</button>
+    return  <div className={css.userMenuContainer}>
+                <p className={css.userName}>{name}</p>
+                <button className={css.btnLogOut} onClick={logoutUser}>Logout</button>
             </div>
 }
 

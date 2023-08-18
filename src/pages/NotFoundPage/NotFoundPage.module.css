@@ -1,0 +1,29 @@
+.NotFoundContainer{
+    margin-top: 170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.NotFoundText{
+    margin-right: 20px;
+        margin-left: 20px;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1.36;
+        text-align: center;
+        letter-spacing: 0.06em;
+        color: #2c2b2b;
+}
+
+
+
+@media (min-width: 678px) {
+    .NotFoundText {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 1.36;
+        text-align: center;
+        letter-spacing: 0.06em;
+        color: #2c2b2b;
+    }
+}
